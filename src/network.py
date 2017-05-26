@@ -31,6 +31,8 @@ class Network(object):
         ever used in computing the outputs from later layers."""
         self.num_layers = len(sizes)
         self.sizes = sizes
+        #np.random.randn(a, b)说明：产生a行b列矩阵。以sizes=[2，3，1]为例，实际为
+        #[np.random.randn(3, 1)  np.random.randn(1, 1)]
         self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
         self.weights = [np.random.randn(y, x)
                         for x, y in zip(sizes[:-1], sizes[1:])]
